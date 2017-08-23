@@ -1,12 +1,11 @@
 [Unit]  
 Description=vzhucloud monitor collector  
-After=monitor
    
 [Service]  
 Type=forking  
-ExecStart=/bin/sh INSTALL_DIR/collector/bin/collector.sh start
-ExecReload=/bin/sh INSTALL_DIR/collector/bin/collector.sh restart
-ExecStop=/bin/sh INSTALL_DIR/collector/bin/collector.sh stop
+ExecStart=/bin/sh /opt/collector/bin/collector.sh start
+ExecReload=/bin/sh /opt/collector/bin/collector.sh restart
+ExecStop=/bin/sh /opt/collector/bin/collector.sh stop
 PrivateTmp=true  
    
 [Install]  

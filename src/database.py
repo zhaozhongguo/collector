@@ -14,15 +14,13 @@ class InfluxdbUtils(object):
             port=8086, 
             username=u'root', 
             password=u'root', 
-            dbname=u'vzhucloud', 
-            measurement=u'vm_monitor_data'):
+            dbname=u'vzhucloud'):
 
         self.host = host
         self.port = port
         self.username = username
         self.password = password
         self.dbname = dbname
-        self.measurement = measurement
 
     def connect(self):
         """

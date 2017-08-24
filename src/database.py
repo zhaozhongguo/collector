@@ -54,7 +54,11 @@ class InfluxdbUtils(object):
                and mean 1 hour, 90 minutes, 12 hours, 7 day, and 4 weeks, respectively.
         :param replication (str) – the replication of the retention policy
         """
-        self.client.drop_retention_policy(name, self.dbname)
+        ret_policies = self.client.get_list_retention_policies(self.dbname)
+        for policy in ret_policies:
+            if policy['name'] == name:
+                return
+
         self.client.create_retention_policy(name, duration, replication, self.dbname, True)
 
     def write(self, data):
